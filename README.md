@@ -42,7 +42,7 @@
 
 - `run.sh` – скрипт для запуска Docker-контейнера с пробросом графики  
 	внутри данного файла необходимо изменить строку:  
-	    -v /home/ros2/1/cont/src:/home/work \  и прописать вместо  /home/ros2/1/cont/src свой путь к скаченным файлам.  
+	    -v /home/user/color-follower-ros2/src:/home/work \  и прописать вместо  /home/user/color-follower-ros2/src свой путь к скаченным файлам.  
 - `Dockerfile` – сборка образа `ros2_full:v1`  
 - `worlds/` – файлы мира Gazebo с цветными кубами   
 - `config/` – конфигурация для RVIZ2  
