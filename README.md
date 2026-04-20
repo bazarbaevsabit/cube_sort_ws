@@ -15,7 +15,7 @@
 **Способ 1: Docker (рекомендуемый)**
 
 
- git clone https://github.com/bazarbaevssabit/color-follower-ros2.git  
+ git clone https://github.com/bazarbaevsabit/color-follower-ros2.git  
  cd color-follower-ros2  
  chmod +x run.sh  
  ./run.sh  
