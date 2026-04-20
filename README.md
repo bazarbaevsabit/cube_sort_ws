@@ -1,13 +1,16 @@
 🎨 Color Follower (ROS2 + Gazebo)
 
-Робот едет вдоль цветных кубов и выводит название распознанного цвета в консоль.
+Данный проект создан для помощи новичкам в разворачивании окружения для ROS2
 
+Внутри проекта реализован робот, который едет вдоль цветных кубов и выводит название распознанного цвета в консоль.
+
+Стек:
 - Ubuntu 24.04  
 - ROS2 Jazzy  
 - Gazebo Harmonic  
 - Docker
 
- 🚀 Быстрый старт
+Запускать можно двумя способами:
 
 Способ 1: Docker (рекомендуемый)
 
@@ -40,7 +43,7 @@ ros2 launch mobile launch.py
 	внутри данного файла необходимо изменить строку:
 	    -v /home/ros2/1/cont/src:/home/work \  и прописать вместо  /home/ros2/1/cont/src свой путь к скаченным файлам.
 - `Dockerfile` – сборка образа `ros2_full:v1`
-- `worlds/` – файлы миров Gazebo с цветными кубами 
+- `worlds/` – файлы мира Gazebo с цветными кубами 
 - `config/` – конфигурация для RVIZ2
 - `description/` – urdf-файл робота
 - `launch/` – лаунч файл для запуска проекта
@@ -50,18 +53,19 @@ ros2 launch mobile launch.py
 
 
 
-🔧 Если образ `ros2_full:v1` отсутствует (рекомендую перед запуском)
+🔧 Если образ `ros2_full:v1` отсутствует (рекомендую перед запуском) необходимо собрать его из Dockerfile:
 
-Собери его из `Dockerfile`:
 
-bash
 docker build -t ros2_full:v1 .
 
  📸 Пример работы
 
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c2021761-14d4-4067-a1ae-430768591553" />
 
+<img width="1286" height="270" alt="image" src="https://github.com/user-attachments/assets/0f015f08-5392-4401-aa4e-3b32688e9f49" />
 
--
+![Uploading image.png…]()
+
 
 📝 Лицензия
 
