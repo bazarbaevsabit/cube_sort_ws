@@ -60,11 +60,9 @@ docker build -t ros2_full:v1 .
 
  📸 Пример работы
 
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c2021761-14d4-4067-a1ae-430768591553" />
-
-<img width="1286" height="270" alt="image" src="https://github.com/user-attachments/assets/0f015f08-5392-4401-aa4e-3b32688e9f49" />
-
-![Uploading image.png…]()
+-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c2021761-14d4-4067-a1ae-430768591553" />
+-<img width="1286" height="270" alt="image" src="https://github.com/user-attachments/assets/542a384d-ac1b-4317-9e50-c7abdf3d137e" />
+-<img width="1286" height="270" alt="image" src="https://github.com/user-attachments/assets/0f015f08-5392-4401-aa4e-3b32688e9f49" />
 
 
 📝 Лицензия
