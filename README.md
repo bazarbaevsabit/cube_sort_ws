@@ -17,6 +17,7 @@
 
  git clone https://github.com/bazarbaevsabit/color-follower-ros2.git  
  cd color-follower-ros2  
+ docker build -t ros2_full:v1 .  
  chmod +x run.sh  
  ./run.sh  
 
