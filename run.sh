@@ -1,5 +1,6 @@
 #!/bin/bash
-xhost +si:localuser:root
+
+xhost +local:docker > /dev/null 2>&1
 
 docker run -it --rm \
     --net host \
@@ -9,7 +10,6 @@ docker run -it --rm \
     -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
     -v /home/user/my_project/color-follower-ros2/src:/home/work \
     --device /dev/dri:/dev/dri \
-    -p 2222:22 \
     --name gazebo_test \
     ros2_full:v1 \
     /bin/bash -c "
@@ -20,4 +20,4 @@ docker run -it --rm \
             exec /bin/bash
         "
 
-xhost -local:docker
+xhost -local:docker > /dev/null 2>&1
