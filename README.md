@@ -55,19 +55,19 @@ ros2  launch  mobile  launch.py
 
 ## 5. Ожидаемые результаты
 В терминале отображаются названия распознанных цветов по мере прохождения роботом мимо кубов.
-
+<br><br>
 <img width="1920" height="1080" alt="3" src="https://github.com/user-attachments/assets/cd9b0e7b-1ca2-44a6-abe3-61c94625db55" />
 <br><br>
 
 Окно Gazebo показывает симулируемую среду и движение платформы.
-<br>
+<br><br>
 <img width="1920" height="1080" alt="1" src="https://github.com/user-attachments/assets/396ee71a-067a-4ab1-af66-a92a294880cf" />
 <br><br>
 
 Окно RViz2 визуализирует модель робота, данные лидара и изображение с камеры.
-<br>
+<br><br>
 <img width="1920" height="1080" alt="2" src="https://github.com/user-attachments/assets/8f466eb4-31b6-41f8-888a-38e7019e5a39" />
-
+<br><br>
 
 ## 6. Примечания
 
