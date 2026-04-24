@@ -21,18 +21,7 @@ def generate_launch_description():
             get_package_share_directory('ros_gz_sim'), 'launch', 'gz_sim.launch.py')]),
         launch_arguments={'gz_args': sdf_file}.items()
     )
-    spawn_robot = Node(
-        package='ros_gz_sim',
-        executable='create',
-        arguments=[
-            '-file', sdf_file,
-            '-name', 'vehicle_blue',
-            '-x', '0',
-            '-y', '0',
-            '-z', '0.5'
-        ],
-        output='screen',
-    )
+
 
     bridge = Node(
         package='ros_gz_bridge',
@@ -77,7 +66,6 @@ def generate_launch_description():
         gz_sim,
         bridge,
         robot_state_publisher,
-        spawn_robot,
         joint_state_publisher,
         rviz
     ])
