@@ -26,7 +26,7 @@
         <light type="directional" name="sun">
             <cast_shadows>true</cast_shadows>
             <pose>0 0 10 0 0 0</pose>
-            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <diffuse>0.5 0.5 0.5 1</diffuse>
             <specular>0.2 0.2 0.2 1</specular>
             <attenuation>
                 <range>1000</range>
@@ -348,7 +348,7 @@
                 <topic>/cmd_vel</topic>
             </plugin>
         </model>
-
+        <!-- Cube 0: Red -->
         <model name="cube_0">
             <static>true</static>
             <pose>2.0 0 0.5 0 0 0</pose>
@@ -472,63 +472,6 @@
                     <material>
                         <ambient>0.5 0 0.5 1</ambient>
                         <diffuse>0.5 0 0.5 1</diffuse>
-                        <specular>0.1 0.1 0.1 1</specular>
-                    </material>
-                </visual>
-                <collision name="collision">
-                    <geometry><box><size>1 1 1</size></box></geometry>
-                </collision>
-            </link>
-        </model>
-
-        <!-- Cube 7: Magenta -->
-        <model name="cube_7">
-            <static>true</static>
-            <pose>9.0 0 0.5 0 0 0</pose>
-            <link name="link">
-                <visual name="visual">
-                    <geometry><box><size>1 1 1</size></box></geometry>
-                    <material>
-                        <ambient>1 0 1 1</ambient>
-                        <diffuse>1 0 1 1</diffuse>
-                        <specular>0.1 0.1 0.1 1</specular>
-                    </material>
-                </visual>
-                <collision name="collision">
-                    <geometry><box><size>1 1 1</size></box></geometry>
-                </collision>
-            </link>
-        </model>
-
-        <!-- Cube 8: White -->
-        <model name="cube_8">
-            <static>true</static>
-            <pose>10.0 0 0.5 0 0 0</pose>
-            <link name="link">
-                <visual name="visual">
-                    <geometry><box><size>1 1 1</size></box></geometry>
-                    <material>
-                        <ambient>1 1 1 1</ambient>
-                        <diffuse>1 1 1 1</diffuse>
-                        <specular>0.1 0.1 0.1 1</specular>
-                    </material>
-                </visual>
-                <collision name="collision">
-                    <geometry><box><size>1 1 1</size></box></geometry>
-                </collision>
-            </link>
-        </model>
-
-        <!-- Cube 9: Gray -->
-        <model name="cube_9">
-            <static>true</static>
-            <pose>11.0 0 0.5 0 0 0</pose>
-            <link name="link">
-                <visual name="visual">
-                    <geometry><box><size>1 1 1</size></box></geometry>
-                    <material>
-                        <ambient>0.5 0.5 0.5 1</ambient>
-                        <diffuse>0.5 0.5 0.5 1</diffuse>
                         <specular>0.1 0.1 0.1 1</specular>
                     </material>
                 </visual>

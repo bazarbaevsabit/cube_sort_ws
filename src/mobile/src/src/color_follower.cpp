@@ -4,20 +4,18 @@
 #include <cv_bridge/cv_bridge.hpp>
 #include <opencv2/opencv.hpp>
 
-class UniversalColorDetector : public rclcpp::Node
+class SimpleColorDetector : public rclcpp::Node
 {
 public:
-    UniversalColorDetector() : Node("universal_color_detector")
+    SimpleColorDetector() : Node("simple_color_detector")
     {
         subscription_ = this->create_subscription<sensor_msgs::msg::Image>(
             "/camera/image_raw", 10,
-            std::bind(&UniversalColorDetector::imageCallback, this, std::placeholders::_1));
+            std::bind(&SimpleColorDetector::imageCallback, this, std::placeholders::_1));
         cmd_pub_ = this->create_publisher<geometry_msgs::msg::Twist>("/cmd_vel", 10);
-
         constant_linear_ = 0.3;
         sendStraightCommand();
-
-        RCLCPP_INFO(this->get_logger(), "Node started. Driving straight & detecting any color.");
+        RCLCPP_INFO(this->get_logger(), "Started. Detecting 7 cubes only.");
     }
 
 private:
@@ -29,26 +27,19 @@ private:
         cmd_pub_->publish(twist);
     }
 
-    // Определяем название цвета по значению Hue (0..179) и насыщенности/яркости
-    std::string getColorName(float hue, float saturation, float value)
+    std::string getColor(float h, float s, float v)
     {
-        // Серые, белые, чёрные (низкая насыщенность)
-        if (saturation < 50) {
-            if (value > 200) return "WHITE";
-            if (value < 50) return "BLACK";
-            return "GRAY";
-        }
+        if (s < 80) return "NO_COLOR";
 
-        // Цветные объекты – используем Hue
-        if (hue < 10 || hue >= 170) return "RED";
-        if (hue < 25) return "ORANGE";
-        if (hue < 35) return "YELLOW";
-        if (hue < 85) return "GREEN";
-        if (hue < 100) return "CYAN";
-        if (hue < 130) return "BLUE";
-        if (hue < 160) return "MAGENTA / PURPLE";
-        
-        return "UNKNOWN";
+        if ((h >= 0 && h < 10) || (h >= 170 && h <= 180)) return "RED";
+        if (h >= 10 && h < 25)  return "ORANGE";
+        if (h >= 25 && h < 35)  return "YELLOW";
+        if (h >= 35 && h < 85)  return "GREEN";
+        if (h >= 85 && h < 100) return "CYAN";
+        if (h >= 100 && h < 130) return "BLUE";
+        if (h >= 130 && h < 160) return "PURPLE";
+
+        return "NO_COLOR";
     }
 
     void imageCallback(const sensor_msgs::msg::Image::SharedPtr msg)
@@ -63,61 +54,56 @@ private:
 
         cv::Mat hsv;
         cv::cvtColor(cv_ptr->image, hsv, cv::COLOR_BGR2HSV);
-        
-        // 1. Выделяем все яркие цветные области (не серые/чёрные)
-        cv::Mat colorMask;
-        cv::inRange(hsv, cv::Scalar(0, 50, 50), cv::Scalar(180, 255, 255), colorMask);
-        
-        // 2. Находим контуры
-        std::vector<std::vector<cv::Point>> contours;
-        cv::findContours(colorMask, contours, cv::RETR_EXTERNAL, cv::CHAIN_APPROX_SIMPLE);
-        
-        std::string currentColor = "";
-        double maxArea = 500.0; // минимальная площадь для обнаружения
 
-        for (const auto& contour : contours) {
-            double area = cv::contourArea(contour);
-            if (area < maxArea) continue;
-            
-            // Маска для этого контура
-            cv::Mat mask = cv::Mat::zeros(hsv.size(), CV_8UC1);
-            cv::drawContours(mask, std::vector<std::vector<cv::Point>>{contour}, -1, 255, cv::FILLED);
-            
-            // Вычисляем средний Hue, Sat, Val внутри контура
-            cv::Scalar meanHsv = cv::mean(hsv, mask);
-            float meanHue = meanHsv[0];
-            float meanSat = meanHsv[1];
-            float meanVal = meanHsv[2];
-            
-            std::string colorName = getColorName(meanHue, meanSat, meanVal);
-            if (colorName != "UNKNOWN" && area > maxArea) {
-                maxArea = area;
-                currentColor = colorName;
+        cv::Mat mask;
+        cv::inRange(hsv, cv::Scalar(0, 80, 50), cv::Scalar(180, 255, 255), mask);
+
+        std::vector<std::vector<cv::Point>> contours;
+        cv::findContours(mask, contours, cv::RETR_EXTERNAL, cv::CHAIN_APPROX_SIMPLE);
+
+        double max_area = 0;
+        std::vector<cv::Point> largest_contour;
+
+        for (const auto& c : contours) {
+            double area = cv::contourArea(c);
+            if (area > max_area) {
+                max_area = area;
+                largest_contour = c;
             }
         }
 
-        // Вывод только при изменении цвета
-        if (!currentColor.empty() && currentColor != lastPrintedColor_) {
-            RCLCPP_INFO(this->get_logger(), "Detected color: %s (area: %.0f px)", 
-                        currentColor.c_str(), maxArea);
-            lastPrintedColor_ = currentColor;
-        } else if (currentColor.empty() && !lastPrintedColor_.empty()) {
-            lastPrintedColor_ = "";
+        if (max_area > 500) {
+            cv::Rect bbox = cv::boundingRect(largest_contour);
+            int center_x = cv_ptr->image.cols / 2;
+            int obj_center = bbox.x + bbox.width/2;
+
+            if (std::abs(obj_center - center_x) < cv_ptr->image.cols / 4) {
+                cv::Mat contour_mask = cv::Mat::zeros(hsv.size(), CV_8UC1);
+                cv::drawContours(contour_mask, std::vector<std::vector<cv::Point>>{largest_contour}, -1, 255, cv::FILLED);
+
+                cv::Scalar mean_hsv = cv::mean(hsv, contour_mask);
+                std::string color_name = getColor(mean_hsv[0], mean_hsv[1], mean_hsv[2]);
+
+                if (color_name != "NO_COLOR" && color_name != last_color_) {
+                    RCLCPP_INFO(this->get_logger(), "%s", color_name.c_str());
+                    last_color_ = color_name;
+                }
+            }
         }
 
-        sendStraightCommand(); // продолжаем ехать прямо
+        sendStraightCommand();
     }
 
     rclcpp::Subscription<sensor_msgs::msg::Image>::SharedPtr subscription_;
     rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr cmd_pub_;
     double constant_linear_;
-    std::string lastPrintedColor_;
+    std::string last_color_;
 };
 
 int main(int argc, char** argv)
 {
     rclcpp::init(argc, argv);
-    auto node = std::make_shared<UniversalColorDetector>();
+    auto node = std::make_shared<SimpleColorDetector>();
     rclcpp::spin(node);
     rclcpp::shutdown();
     return 0;
