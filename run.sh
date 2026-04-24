@@ -13,11 +13,7 @@ docker run -it --rm \
     --name gazebo_test \
     ros2_full:v1 \
     /bin/bash -c "
-            mkdir -p /home/work/prg_w/src
-            cd /home/work/prg_w/src
-            ros2 pkg create --build-type ament_cmake mobile
-            cp -r /home/work/mobile/src/* /home/work/prg_w/src/mobile/
-            cd /home/work/prg_w/src
+            cd /home/work/mobile
             colcon build
             source install/setup.bash
             ros2 launch mobile launch.py
