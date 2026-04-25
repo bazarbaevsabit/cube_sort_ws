@@ -1,10 +1,3 @@
-build/
-install/
-log/
-__pycache__/
-*.pyc
-.vscode/
-.idea/
-*.swp
-*.log
-src/prg_w/
+src/mobile/build
+src/mobile/install
+src/mobile/log

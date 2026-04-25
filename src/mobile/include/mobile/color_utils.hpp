@@ -1,4 +1,3 @@
-// src/mobile/include/mobile/color_utils.hpp
 #ifndef MOBILE__COLOR_UTILS_HPP_
 #define MOBILE__COLOR_UTILS_HPP_
 
@@ -6,4 +5,4 @@
 
 std::string getColor(float h, float s, float v);
 
-#endif  // MOBILE__COLOR_UTILS_HPP_6
+#endif  // MOBILE__COLOR_UTILS_HPP_

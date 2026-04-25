@@ -14,7 +14,7 @@ find_package(sensor_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
 
 # Библиотека с общей функцией распознавания цвета
-add_library(color_utils SHARED include/mobile/color_utils.cpp)
+add_library(color_utils SHARED src/color_utils.cpp)
 target_include_directories(color_utils PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>)
