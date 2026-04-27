@@ -1,0 +1,43 @@
+[0.007s] Invoking command in '/home/user/my_project/color-follower-ros2/src/build/mobile_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/user/my_project/color-follower-ros2/src/mobile_description -DCMAKE_INSTALL_PREFIX=/home/user/my_project/color-follower-ros2/src/install/mobile_description
+[0.243s] -- The C compiler identification is GNU 13.3.0
+[0.370s] -- The CXX compiler identification is GNU 13.3.0
+[0.402s] -- Detecting C compiler ABI info
+[0.551s] -- Detecting C compiler ABI info - done
+[0.561s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.561s] -- Detecting C compile features
+[0.562s] -- Detecting C compile features - done
+[0.570s] -- Detecting CXX compiler ABI info
+[0.677s] -- Detecting CXX compiler ABI info - done
+[0.682s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.683s] -- Detecting CXX compile features
+[0.683s] -- Detecting CXX compile features - done
+[0.693s] -- Found ament_cmake: 2.5.5 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.780s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[0.900s] -- Configuring done (0.9s)
+[0.901s] -- Generating done (0.0s)
+[0.903s] -- Build files have been written to: /home/user/my_project/color-follower-ros2/src/build/mobile_description
+[0.906s] Invoked command in '/home/user/my_project/color-follower-ros2/src/build/mobile_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/user/my_project/color-follower-ros2/src/mobile_description -DCMAKE_INSTALL_PREFIX=/home/user/my_project/color-follower-ros2/src/install/mobile_description
+[0.906s] Invoking command in '/home/user/my_project/color-follower-ros2/src/build/mobile_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/user/my_project/color-follower-ros2/src/build/mobile_description -- -j24 -l24
+[0.927s] Invoked command in '/home/user/my_project/color-follower-ros2/src/build/mobile_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/user/my_project/color-follower-ros2/src/build/mobile_description -- -j24 -l24
+[0.934s] Invoking command in '/home/user/my_project/color-follower-ros2/src/build/mobile_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/user/my_project/color-follower-ros2/src/build/mobile_description
+[0.941s] -- Install configuration: ""
+[0.941s] -- Installing: /home/user/my_project/color-follower-ros2/src/install/mobile_description/share/mobile_description/launch
+[0.941s] -- Installing: /home/user/my_project/color-follower-ros2/src/install/mobile_description/share/mobile_description/launch/robot.launch.py
+[0.941s] -- Installing: /home/user/my_project/color-follower-ros2/src/install/mobile_description/share/mobile_description/rviz
+[0.941s] -- Installing: /home/user/my_project/color-follower-ros2/src/install/mobile_description/share/mobile_description/urdf
+[0.941s] -- Installing: /home/user/my_project/color-follower-ros2/src/install/mobile_description/share/ament_index/resource_index/package_run_dependencies/mobile_description
+[0.941s] -- Installing: /home/user/my_project/color-follower-ros2/src/install/mobile_description/share/ament_index/resource_index/parent_prefix_path/mobile_description
+[0.941s] -- Installing: /home/user/my_project/color-follower-ros2/src/install/mobile_description/share/mobile_description/environment/ament_prefix_path.sh
+[0.941s] -- Installing: /home/user/my_project/color-follower-ros2/src/install/mobile_description/share/mobile_description/environment/ament_prefix_path.dsv
+[0.942s] -- Installing: /home/user/my_project/color-follower-ros2/src/install/mobile_description/share/mobile_description/environment/path.sh
+[0.942s] -- Installing: /home/user/my_project/color-follower-ros2/src/install/mobile_description/share/mobile_description/environment/path.dsv
+[0.942s] -- Installing: /home/user/my_project/color-follower-ros2/src/install/mobile_description/share/mobile_description/local_setup.bash
+[0.942s] -- Installing: /home/user/my_project/color-follower-ros2/src/install/mobile_description/share/mobile_description/local_setup.sh
+[0.942s] -- Installing: /home/user/my_project/color-follower-ros2/src/install/mobile_description/share/mobile_description/local_setup.zsh
+[0.942s] -- Installing: /home/user/my_project/color-follower-ros2/src/install/mobile_description/share/mobile_description/local_setup.dsv
+[0.942s] -- Installing: /home/user/my_project/color-follower-ros2/src/install/mobile_description/share/mobile_description/package.dsv
+[0.942s] -- Installing: /home/user/my_project/color-follower-ros2/src/install/mobile_description/share/ament_index/resource_index/packages/mobile_description
+[0.942s] -- Installing: /home/user/my_project/color-follower-ros2/src/install/mobile_description/share/mobile_description/cmake/mobile_descriptionConfig.cmake
+[0.942s] -- Installing: /home/user/my_project/color-follower-ros2/src/install/mobile_description/share/mobile_description/cmake/mobile_descriptionConfig-version.cmake
+[0.942s] -- Installing: /home/user/my_project/color-follower-ros2/src/install/mobile_description/share/mobile_description/package.xml
+[0.943s] Invoked command in '/home/user/my_project/color-follower-ros2/src/build/mobile_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/user/my_project/color-follower-ros2/src/build/mobile_description

@@ -1,0 +1,37 @@
+-- The C compiler identification is GNU 13.3.0
+-- The CXX compiler identification is GNU 13.3.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 2.5.5 (/opt/ros/jazzy/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+-- Configuring done (0.9s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/user/my_project/color-follower-ros2/src/build/mobile_description
+-- Install configuration: ""
+-- Installing: /home/user/my_project/color-follower-ros2/src/install/mobile_description/share/mobile_description/launch
+-- Installing: /home/user/my_project/color-follower-ros2/src/install/mobile_description/share/mobile_description/launch/robot.launch.py
+-- Installing: /home/user/my_project/color-follower-ros2/src/install/mobile_description/share/mobile_description/rviz
+-- Installing: /home/user/my_project/color-follower-ros2/src/install/mobile_description/share/mobile_description/urdf
+-- Installing: /home/user/my_project/color-follower-ros2/src/install/mobile_description/share/ament_index/resource_index/package_run_dependencies/mobile_description
+-- Installing: /home/user/my_project/color-follower-ros2/src/install/mobile_description/share/ament_index/resource_index/parent_prefix_path/mobile_description
+-- Installing: /home/user/my_project/color-follower-ros2/src/install/mobile_description/share/mobile_description/environment/ament_prefix_path.sh
+-- Installing: /home/user/my_project/color-follower-ros2/src/install/mobile_description/share/mobile_description/environment/ament_prefix_path.dsv
+-- Installing: /home/user/my_project/color-follower-ros2/src/install/mobile_description/share/mobile_description/environment/path.sh
+-- Installing: /home/user/my_project/color-follower-ros2/src/install/mobile_description/share/mobile_description/environment/path.dsv
+-- Installing: /home/user/my_project/color-follower-ros2/src/install/mobile_description/share/mobile_description/local_setup.bash
+-- Installing: /home/user/my_project/color-follower-ros2/src/install/mobile_description/share/mobile_description/local_setup.sh
+-- Installing: /home/user/my_project/color-follower-ros2/src/install/mobile_description/share/mobile_description/local_setup.zsh
+-- Installing: /home/user/my_project/color-follower-ros2/src/install/mobile_description/share/mobile_description/local_setup.dsv
+-- Installing: /home/user/my_project/color-follower-ros2/src/install/mobile_description/share/mobile_description/package.dsv
+-- Installing: /home/user/my_project/color-follower-ros2/src/install/mobile_description/share/ament_index/resource_index/packages/mobile_description
+-- Installing: /home/user/my_project/color-follower-ros2/src/install/mobile_description/share/mobile_description/cmake/mobile_descriptionConfig.cmake
+-- Installing: /home/user/my_project/color-follower-ros2/src/install/mobile_description/share/mobile_description/cmake/mobile_descriptionConfig-version.cmake
+-- Installing: /home/user/my_project/color-follower-ros2/src/install/mobile_description/share/mobile_description/package.xml
