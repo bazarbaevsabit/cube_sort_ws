@@ -1,9 +1,0 @@
-/home/user/my_project/color-follower-ros2/build/mobile_world/CMakeFiles/uninstall.dir
-/home/user/my_project/color-follower-ros2/build/mobile_world/CMakeFiles/mobile_world_uninstall.dir
-/home/user/my_project/color-follower-ros2/build/mobile_world/CMakeFiles/test.dir
-/home/user/my_project/color-follower-ros2/build/mobile_world/CMakeFiles/edit_cache.dir
-/home/user/my_project/color-follower-ros2/build/mobile_world/CMakeFiles/rebuild_cache.dir
-/home/user/my_project/color-follower-ros2/build/mobile_world/CMakeFiles/list_install_components.dir
-/home/user/my_project/color-follower-ros2/build/mobile_world/CMakeFiles/install.dir
-/home/user/my_project/color-follower-ros2/build/mobile_world/CMakeFiles/install/local.dir
-/home/user/my_project/color-follower-ros2/build/mobile_world/CMakeFiles/install/strip.dir
