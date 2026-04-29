@@ -6,7 +6,7 @@ from launch_ros.substitutions import FindPackageShare
 
 def generate_launch_description():
     pkg_share = FindPackageShare('mobile_world')
-    world_file = PathJoinSubstitution([pkg_share, 'worlds', 'test_world.sdf'])
+    world_file = PathJoinSubstitution([pkg_share, 'worlds', 'world_v1.sdf'])
 
     return LaunchDescription([
         IncludeLaunchDescription(

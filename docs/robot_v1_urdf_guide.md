@@ -22,7 +22,7 @@
 <link name="chassis">
     <inertial>
         <mass value="1.14395"/>
-        <inertia ixx="0.095329" ixy="0.0" ixz="0.0" iyy="0.381317" iyz="0.0" izz="0.476646"/>
+        <inertia ixx="0.119" ixy="0.0" ixz="0.0" iyy="0.405" iyz="0.0" izz="0.476"/>
     </inertial>
     <visual>
         <geometry>
@@ -198,7 +198,7 @@
 <joint name="lidar_joint" type="fixed">
     <parent link="chassis"/>
     <child link="vehicle_blue/chassis/gpu_lidar"/>
-    <origin xyz="0.8 0 0.35" rpy="0 0 0"/>
+    <origin xyz="0.8 0 0.3" rpy="0 0 0"/>
 </joint>
 ```
 Как видите, всё крепится к `chassis`. Обратите внимание на типы:
@@ -221,12 +221,12 @@
 ```xml
 <gazebo>
     <plugin filename="gz-sim-diff-drive-system" name="gz::sim::systems::DiffDrive">
-        <child_frame_id>chassis</child_frame_id>
-        <publish_odom_tf>true</publish_odom_tf>
+        <robot_base_frame>chassis</robot_base_frame>
+        <odom_frame_id>odom</odom_frame_id>
         <left_joint>left_wheel_joint</left_joint>
         <right_joint>right_wheel_joint</right_joint>
-        <wheel_separation>1.25</wheel_separation>
-        <wheel_radius>0.3</wheel_radius>
+        <wheel_separation>1.2</wheel_separation>
+        <wheel_radius>0.4</wheel_radius>
         <odom_publish_frequency>20</odom_publish_frequency>
         <max_linear_acceleration>1</max_linear_acceleration>
         <min_linear_acceleration>-1</min_linear_acceleration>
@@ -248,7 +248,7 @@
 *   **`<wheel_radius>0.3</wheel_radius>`** радиус колеса. Нужен для пересчёта угловой скорости вращения колеса в линейную скорость робота (`v = ω * R`).
 *   **Ограничения скоростей и ускорений** заданы для реалистичности. Например, `max_linear_velocity = 0.5 м/с`, а `max_angular_velocity = 3.14 рад/с` (почти 180 град/с).
 *   **`<topic>/cmd_vel</topic>`** это имя топика ROS, на который плагин будет подписан в ожидании команд. Ваша будущая программа управления должна будет публиковать в этот топик сообщения типа `geometry_msgs/Twist`.
-*   **`<publish_odom_tf>true</publish_odom_tf>`** плагин будет автоматически вычислять, где находится робот в мире (одометрию), и публиковать соответствующую трансформацию (TF).
+*   **`<odom_frame_id>odom</odom_frame_id>`** плагин будет автоматически вычислять, где находится робот в мире (одометрию), и публиковать соответствующую трансформацию (TF).
 
 #### 2. Плагин лидара (gpu_lidar) — Как робот «видит» мир
 
@@ -256,7 +256,7 @@
 <!-- gpu_lidar на chassis -->
 <gazebo reference="chassis">
     <sensor name="gpu_lidar" type="gpu_lidar">
-        <pose>0.8 0 0.5 0 0 0</pose>
+        <pose>0.8 0 0.3 0 0 0</pose>
         <topic>lidar</topic>
         <frame_name>vehicle_blue/chassis</frame_name>
         <update_rate>10</update_rate>

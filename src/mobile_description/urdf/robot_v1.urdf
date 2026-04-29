@@ -5,7 +5,8 @@
     <link name="chassis">
         <inertial>
             <mass value="1.14395"/>
-            <inertia ixx="0.095329" ixy="0.0" ixz="0.0" iyy="0.381317" iyz="0.0" izz="0.476646"/>
+            <inertia ixx="0.119" ixy="0.0" ixz="0.0" iyy="0.405" iyz="0.0" izz="0.476"/>
+            
         </inertial>
         <visual>
             <geometry>
@@ -140,16 +141,16 @@
    <joint name="lidar_joint" type="fixed">
         <parent link="chassis"/>
         <child link="vehicle_blue/chassis/gpu_lidar"/>
-        <origin xyz="0.8 0 0.35" rpy="0 0 0"/>
+        <origin xyz="0.8 0 0.3" rpy="0 0 0"/>
     </joint>
     <gazebo>
         <plugin filename="gz-sim-diff-drive-system" name="gz::sim::systems::DiffDrive">
-            <child_frame_id>chassis</child_frame_id>
-            <publish_odom_tf>true</publish_odom_tf>
+            <robot_base_frame>chassis</robot_base_frame>
+            <odom_frame_id>odom</odom_frame_id>
             <left_joint>left_wheel_joint</left_joint>
             <right_joint>right_wheel_joint</right_joint>
-            <wheel_separation>1.25</wheel_separation>
-            <wheel_radius>0.3</wheel_radius>
+            <wheel_separation>1.2</wheel_separation>
+            <wheel_radius>0.4</wheel_radius>
             <odom_publish_frequency>20</odom_publish_frequency>
             <max_linear_acceleration>1</max_linear_acceleration>
             <min_linear_acceleration>-1</min_linear_acceleration>
@@ -166,7 +167,7 @@
     <!-- gpu_lidar на chassis -->
     <gazebo reference="chassis">
         <sensor name="gpu_lidar" type="gpu_lidar">
-            <pose>0.8 0 0.5 0 0 0</pose>
+            <pose>0.8 0 0.3 0 0 0</pose>
             <topic>lidar</topic>
             <frame_name>vehicle_blue/chassis</frame_name>
             <update_rate>10</update_rate>
