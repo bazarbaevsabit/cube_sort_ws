@@ -105,6 +105,7 @@
   <plugin filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController">
     <joint_name>knee_joint</joint_name>
     <topic>/model/simple_knee_arm/joint/knee_joint/cmd_pos</topic>
+    
     <p_gain>10.0</p_gain>
     <i_gain>0.1</i_gain>
     <d_gain>1.0</d_gain>
