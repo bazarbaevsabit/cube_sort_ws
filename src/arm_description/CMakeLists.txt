@@ -6,7 +6,7 @@ find_package(ament_cmake REQUIRED)
 
 # Install directories
 install(
-  DIRECTORY launch urdf rviz2
+  DIRECTORY launch urdf 
   DESTINATION share/${PROJECT_NAME}
 )
 
