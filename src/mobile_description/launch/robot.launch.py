@@ -36,7 +36,7 @@ def generate_launch_description():
             '/cmd_vel@geometry_msgs/msg/Twist@gz.msgs.Twist',
             '/lidar@sensor_msgs/msg/LaserScan@gz.msgs.LaserScan',
             '/camera/image_raw@sensor_msgs/msg/Image@gz.msgs.Image',
-            
+            '/model/vehicle_blue/odometry@nav_msgs/msg/Odometry@gz.msgs.Odometry',
         ],
         output='screen'
     )
