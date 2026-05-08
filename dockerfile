@@ -11,10 +11,9 @@ RUN apt-get update && apt-get install -y \
     ros-jazzy-rviz2 \
     python3-pip \
     python3-colcon-common-extensions \
-    python3-rosdep \
+	python3-rosdep \
     && rm -rf /var/lib/apt/lists/*
 
-RUN rosdep update
 
 WORKDIR /home/work
 ENV DEBIAN_FRONTEND=
